@@ -38,7 +38,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
       if (value is AsyncData<AuthResponse>) {
         ScreenAlertView.showInfoDialog(
             context: context,
-            info: "Check your email ${email.text} for confirmation");
+            info: "Check your email on your current device for confirmation");
         // context.navigate(const LoginScreen());
       }
       if (value is AsyncError) {
@@ -113,7 +113,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                       ),
                       controller: email,
                       keyboardType: TextInputType.emailAddress,
-                      validator: (value) => validatePassword(value),
+                      validator: (value) => validateEmail(value),
                     ),
                   ),
                   const Space(20),
@@ -239,6 +239,11 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                                 if (_formKey.currentState!.validate()) {
                                   if (!currentFocus.hasPrimaryFocus) {
                                     currentFocus.unfocus();
+                                  }
+
+                                  /// MAKE THE PASSWORD NOT VISIBLE IF IT WAS VISIBLE
+                                  if (!obscure) {
+                                    setState(() => obscure = true);
                                   }
                                   var signUpReq = SignUpReq(
                                       username: username.text,

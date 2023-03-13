@@ -142,6 +142,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                     currentFocus.unfocus();
                                   }
 
+                                  /// MAKE THE PASSWORD NOT VISIBLE IF IT WAS VISIBLE
+                                  if (!obscure) {
+                                    setState(() => obscure = true);
+                                  }
+
                                   ref
                                       .read(loginProvider.notifier)
                                       .login(email.text, password.text);

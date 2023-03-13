@@ -89,7 +89,6 @@ class AuthService {
   ///UPDATE USER
   Future<dynamic> updateUserName(String username) async {
     try {
-      print("Here");
       final id = ref.watch(supaBaseClientProvider).auth.currentUser;
       final res = await ref
           .read(supaBaseClientProvider)
@@ -105,7 +104,6 @@ class AuthService {
   ///UPLOAD AVATAR
   Future<dynamic> uploadAvatar(String avatar) async {
     try {
-      print("Here");
       final id = ref.watch(supaBaseClientProvider).auth.currentUser;
       final res = await ref
           .read(supaBaseClientProvider)

@@ -36,7 +36,7 @@ class ScreenAlertView {
     showPlatformDialog(
         context: context,
         builder: (_) => BasicDialogAlert(
-              title: Text("Error",
+              title: Text("Info",
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: Colors.black,
                       fontSize: 25,
@@ -45,7 +45,7 @@ class ScreenAlertView {
               content: Text(info,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Colors.black,
-                      fontSize: 17,
+                      fontSize: 15,
                       fontWeight: FontWeight.w500,
                       height: 1.5)),
               actions: <Widget>[
